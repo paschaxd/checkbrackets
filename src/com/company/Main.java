@@ -6,12 +6,14 @@ public class Main {
 
     public static void main(String args[])
     {
-        String checkLine = "()()";
+        String checkLine = "))((";
         System.out.println(checkLine + ": brackets are " + (checkBrackets(checkLine) ? "balanced" : "unbalanced") );
         System.out.println(checkLine + ": brackets are " + (checkBrackets2(checkLine) ? "balanced" : "unbalanced") );
     }
 
     public static boolean checkBrackets(String checkLine) {
+        if (checkLine.startsWith(")")) return false;
+
         int count = 0;
         for (String s : checkLine.split("")) {
             if (s.equals("(")){
@@ -23,7 +25,10 @@ public class Main {
             }
         }
         return count == 0;
+
+
     }
+
     public static boolean checkBrackets2(String checkLine) {
         long count1 = Arrays.stream(checkLine.replace("(", "").split("")).count();
         long count2 = Arrays.stream(checkLine.replace(")", "").split("")).count();
