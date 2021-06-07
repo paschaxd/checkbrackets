@@ -4,11 +4,13 @@ public class Main {
 
     public static void main(String args[])
     {
-        String checkLine = "()()";
+        String checkLine = "))((";
         System.out.println(checkLine + ": brackets are " + (checkBrackets(checkLine) ? "balanced" : "unbalanced") );
     }
 
     public static boolean checkBrackets(String checkLine) {
+        if (checkLine.startsWith(")")) return false;
+
         int count = 0;
         for (String s : checkLine.split("")) {
             if (s.equals("(")){
