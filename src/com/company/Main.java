@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String args[])
     {
-        String checkLine = "))((";
+        String checkLine = "(())()";
         System.out.println(checkLine + ": brackets are " + (checkBrackets(checkLine) ? "balanced" : "unbalanced") );
         System.out.println(checkLine + ": brackets are " + (checkBrackets2(checkLine) ? "balanced" : "unbalanced") );
     }
@@ -22,6 +22,10 @@ public class Main {
                 count--;
             } else {
                 System.out.println("Unknown character");
+
+            }
+            if (count < 0 ){
+              return false;
             }
         }
         return count == 0;
